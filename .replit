@@ -1,6 +1,7 @@
 
 hidden = [".config", "package-lock.json"]
 run = "npm run dev"
+entrypoint = "index.php"
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"
@@ -75,3 +76,6 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 
 [languages.javascript.languageServer]
 start = "typescript-language-server --stdio"
+
+[deployment]
+run = ["sh", "-c", "php -S 0.0.0.0:8000 -t ."]
